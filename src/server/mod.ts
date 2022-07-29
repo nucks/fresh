@@ -32,8 +32,8 @@ export type {
   UnknownHandlerContext,
   UnknownPageProps,
 } from "./types.ts";
-export { RenderContext } from "./render.tsx";
-export type { InnerRenderFunction } from "./render.tsx";
+export { RenderContext } from "./render.ts";
+export type { InnerRenderFunction } from "./render.ts";
 
 export interface Manifest {
   routes: Record<
@@ -46,6 +46,15 @@ export interface Manifest {
   >;
   islands: Record<string, IslandModule>;
   baseUrl: string;
+  config?: DenoConfig;
+}
+
+export interface DenoConfig {
+  importMap: string;
+  compilerOptions?: {
+    jsx?: "react" | "react-jsx";
+    jsxImportSource?: string;
+  };
 }
 
 export { ServerContext };
